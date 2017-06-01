@@ -29,7 +29,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vGZ-wu-qGB"/>
-                                    <barButtonItem title="新規フォルダ" id="MgI-WT-iPE"/>
+                                    <barButtonItem title="新規フォルダ" id="MgI-WT-iPE">
+                                        <connections>
+                                            <action selector="didTapEditFolder:" destination="BYZ-38-t0r" id="ZWS-Hs-qek"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ahd-cv-JRO">
@@ -91,6 +95,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="フォルダ" id="Quf-M6-dcY"/>
+                    <connections>
+                        <outlet property="editButton" destination="MgI-WT-iPE" id="kip-X0-oWG"/>
+                        <outlet property="tableView" destination="Ahd-cv-JRO" id="ibL-tz-ABF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
