@@ -89,11 +89,11 @@
 		BC36C1191EDF9A4E00849601 = {
 			isa = PBXGroup;
 			children = (
+				B1CE5D18565B7361D96DC053 /* Frameworks */,
+				A3C683848EDDA4DC112752F8 /* Pods */,
+				BC36C1231EDF9A4E00849601 /* Products */,
 				BC36C1241EDF9A4E00849601 /* ios-simple-todo-demo */,
 				BC36C1391EDF9A4E00849601 /* ios-simple-todo-demoTests */,
-				BC36C1231EDF9A4E00849601 /* Products */,
-				A3C683848EDDA4DC112752F8 /* Pods */,
-				B1CE5D18565B7361D96DC053 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,11 +109,11 @@
 		BC36C1241EDF9A4E00849601 /* ios-simple-todo-demo */ = {
 			isa = PBXGroup;
 			children = (
-				BC36C1251EDF9A4E00849601 /* AppDelegate.swift */,
-				BC36C1271EDF9A4E00849601 /* ViewController.swift */,
-				BC36C1291EDF9A4E00849601 /* Main.storyboard */,
-				BC36C12C1EDF9A4E00849601 /* Assets.xcassets */,
-				BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */,
+				BC36C1451EDF9B5400849601 /* Controllers */,
+				BC36C1491EDF9B7700849601 /* Extensions */,
+				BC36C1461EDF9B6200849601 /* Models */,
+				BC36C1481EDF9B6D00849601 /* Others */,
+				BC36C1471EDF9B6800849601 /* Views */,
 				BC36C1311EDF9A4E00849601 /* Info.plist */,
 			);
 			path = "ios-simple-todo-demo";
@@ -122,10 +122,55 @@
 		BC36C1391EDF9A4E00849601 /* ios-simple-todo-demoTests */ = {
 			isa = PBXGroup;
 			children = (
-				BC36C13A1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift */,
 				BC36C13C1EDF9A4E00849601 /* Info.plist */,
+				BC36C13A1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift */,
 			);
 			path = "ios-simple-todo-demoTests";
+			sourceTree = "<group>";
+		};
+		BC36C1451EDF9B5400849601 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C1291EDF9A4E00849601 /* Main.storyboard */,
+				BC36C1271EDF9A4E00849601 /* ViewController.swift */,
+			);
+			name = Controllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC36C1461EDF9B6200849601 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC36C1471EDF9B6800849601 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC36C1481EDF9B6D00849601 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C1251EDF9A4E00849601 /* AppDelegate.swift */,
+				BC36C12C1EDF9A4E00849601 /* Assets.xcassets */,
+				BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */,
+			);
+			name = Others;
+			path = Others;
+			sourceTree = "<group>";
+		};
+		BC36C1491EDF9B7700849601 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +405,7 @@
 				BC36C12A1EDF9A4E00849601 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */ = {
@@ -368,6 +414,7 @@
 				BC36C12F1EDF9A4E00849601 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -541,6 +588,7 @@
 				BC36C1411EDF9A4E00849601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC36C1421EDF9A4E00849601 /* Build configuration list for PBXNativeTarget "ios-simple-todo-demoTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +597,7 @@
 				BC36C1441EDF9A4E00849601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
