@@ -12,6 +12,7 @@ pod 'STV-Extensions', '0.1.7'
   target 'ios-simple-todo-demoTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'STV-Extensions', '0.1.7'
   end
 
 end
