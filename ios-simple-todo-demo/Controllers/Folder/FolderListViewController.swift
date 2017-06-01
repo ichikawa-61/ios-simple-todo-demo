@@ -24,6 +24,7 @@ final class FolderListViewController: UIViewController {
     @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
 
         if tableView.isEditing {
+            showAllDeleteFolderAlert()
         } else {
             showCreateFolderAlert()
         }
@@ -32,7 +33,7 @@ final class FolderListViewController: UIViewController {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.isEditing = editing
-        setupEditButton(isEditing: editing)
+        setupToolBar(isEditing: editing)
     }
 
     /// ナビゲーションバーを設定する
@@ -41,14 +42,15 @@ final class FolderListViewController: UIViewController {
         navigationItem.hideBackButtonTitle()
     }
 
-    /// 編集ボタンを設定する
+    /// ツールバーを設定する
     ///
     /// - Parameter isEditing: 編集モードか？
-    private func setupEditButton(isEditing: Bool) {
+    private func setupToolBar(isEditing: Bool) {
         editButton.title = isEditing ?
             "すべて削除" : "新規作成"
     }
 
+    /// フォルダの新規作成ダイアログを表示する
     private func showCreateFolderAlert() {
 
         alert = FolderAlertHelper()
@@ -56,8 +58,17 @@ final class FolderListViewController: UIViewController {
                           title: "新規フォルダ",
                           message: "このフォルダの名前を入力してください。",
                           delegate: self)
-        present(alert, animated: true, completion: {
-            self.alert = nil
+        present(alert, animated: true, completion: { [weak self] in
+            self?.alert = nil
+        })
+    }
+
+    /// フォルダ全削除用のダイアログを表示する
+    private func showAllDeleteFolderAlert() {
+
+        alert = FolderAlertHelper().deleateFolder(delegate: self)
+        present(alert, animated: true, completion: { [weak self] in
+            self?.alert = nil
         })
     }
 }
@@ -85,5 +96,6 @@ extension FolderListViewController: FolderAlertHelperDelegate {
 
     /// 全フォルダとそれに関連するメモを削除する
     func deleteAll() {
+        print(#function)
     }
 }
