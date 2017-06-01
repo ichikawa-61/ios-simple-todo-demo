@@ -27,6 +27,7 @@
 		BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */; };
 		BC36C16B1EDFB31D00849601 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16A1EDFB31D00849601 /* ToDo.swift */; };
 		BC36C16D1EDFB37500849601 /* ToDoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16C1EDFB37500849601 /* ToDoDao.swift */; };
+		BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +65,9 @@
 		BC36C15D1EDF9F9400849601 /* FolderListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FolderListViewController.storyboard; sourceTree = "<group>"; };
 		BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderAlertHelper.swift; sourceTree = "<group>"; };
 		BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellTests.swift; sourceTree = "<group>"; };
-		BC36C16A1EDFB31D00849601 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDo.swift; path = ToDo/ToDo.swift; sourceTree = "<group>"; };
+		BC36C16A1EDFB31D00849601 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDo.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		BC36C16C1EDFB37500849601 /* ToDoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDao.swift; sourceTree = "<group>"; };
+		BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDaoTests.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,8 +169,8 @@
 		BC36C1461EDF9B6200849601 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC36C1691EDFB2F600849601 /* ToDo */,
 				BC36C1521EDF9C9D00849601 /* Folder */,
+				BC36C1691EDFB2F600849601 /* ToDo */,
 				BC36C14E1EDF9C2F00849601 /* RealmDaoHelper.swift */,
 			);
 			path = Models;
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				BC36C1541EDF9D1100849601 /* FolderDaoTests.swift */,
+				BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				BC36C16C1EDFB37500849601 /* ToDoDao.swift */,
 			);
 			name = ToDo;
+			path = ToDo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +480,7 @@
 			files = (
 				BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */,
 				BC36C1551EDF9D1100849601 /* FolderDaoTests.swift in Sources */,
+				BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */,
 				BC36C13B1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
