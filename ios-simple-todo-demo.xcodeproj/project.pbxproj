@@ -10,11 +10,8 @@
 		50F191957A91CD0B91ACDB3F /* Pods_ios_simple_todo_demoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */; };
 		B23979816E64E409649EA506 /* Pods_ios_simple_todo_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91DBEA3810B89024F6AA649 /* Pods_ios_simple_todo_demo.framework */; };
 		BC36C1261EDF9A4E00849601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1251EDF9A4E00849601 /* AppDelegate.swift */; };
-		BC36C1281EDF9A4E00849601 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1271EDF9A4E00849601 /* ViewController.swift */; };
-		BC36C12B1EDF9A4E00849601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC36C1291EDF9A4E00849601 /* Main.storyboard */; };
 		BC36C12D1EDF9A4E00849601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC36C12C1EDF9A4E00849601 /* Assets.xcassets */; };
 		BC36C1301EDF9A4E00849601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */; };
-		BC36C13B1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C13A1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift */; };
 		BC36C14D1EDF9BDB00849601 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C14C1EDF9BDB00849601 /* Folder.swift */; };
 		BC36C14F1EDF9C2F00849601 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C14E1EDF9C2F00849601 /* RealmDaoHelper.swift */; };
 		BC36C1511EDF9C5C00849601 /* FolderDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1501EDF9C5C00849601 /* FolderDao.swift */; };
@@ -47,13 +44,10 @@
 		B91DBEA3810B89024F6AA649 /* Pods_ios_simple_todo_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC36C1221EDF9A4E00849601 /* ios-simple-todo-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-simple-todo-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC36C1251EDF9A4E00849601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC36C1271EDF9A4E00849601 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BC36C12A1EDF9A4E00849601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC36C12C1EDF9A4E00849601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC36C12F1EDF9A4E00849601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC36C1311EDF9A4E00849601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC36C1361EDF9A4E00849601 /* ios-simple-todo-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-simple-todo-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC36C13A1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_simple_todo_demoTests.swift; sourceTree = "<group>"; };
 		BC36C13C1EDF9A4E00849601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC36C14C1EDF9BDB00849601 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		BC36C14E1EDF9C2F00849601 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
@@ -65,7 +59,7 @@
 		BC36C15D1EDF9F9400849601 /* FolderListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FolderListViewController.storyboard; sourceTree = "<group>"; };
 		BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderAlertHelper.swift; sourceTree = "<group>"; };
 		BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellTests.swift; sourceTree = "<group>"; };
-		BC36C16A1EDFB31D00849601 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDo.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		BC36C16A1EDFB31D00849601 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		BC36C16C1EDFB37500849601 /* ToDoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDao.swift; sourceTree = "<group>"; };
 		BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDaoTests.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +145,6 @@
 				BC36C1531EDF9D0100849601 /* Models */,
 				BC36C1621EDFAB2200849601 /* Views */,
 				BC36C13C1EDF9A4E00849601 /* Info.plist */,
-				BC36C13A1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift */,
 			);
 			path = "ios-simple-todo-demoTests";
 			sourceTree = "<group>";
@@ -160,8 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				BC36C15F1EDF9F9800849601 /* Folder */,
-				BC36C1291EDF9A4E00849601 /* Main.storyboard */,
-				BC36C1271EDF9A4E00849601 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,7 +243,6 @@
 				BC36C16A1EDFB31D00849601 /* ToDo.swift */,
 				BC36C16C1EDFB37500849601 /* ToDoDao.swift */,
 			);
-			name = ToDo;
 			path = ToDo;
 			sourceTree = "<group>";
 		};
@@ -348,7 +338,6 @@
 			files = (
 				BC36C1301EDF9A4E00849601 /* LaunchScreen.storyboard in Resources */,
 				BC36C12D1EDF9A4E00849601 /* Assets.xcassets in Resources */,
-				BC36C12B1EDF9A4E00849601 /* Main.storyboard in Resources */,
 				BC36C15E1EDF9F9400849601 /* FolderListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,7 +453,6 @@
 				BC36C16D1EDFB37500849601 /* ToDoDao.swift in Sources */,
 				BC36C16B1EDFB31D00849601 /* ToDo.swift in Sources */,
 				BC36C14F1EDF9C2F00849601 /* RealmDaoHelper.swift in Sources */,
-				BC36C1281EDF9A4E00849601 /* ViewController.swift in Sources */,
 				BC36C1261EDF9A4E00849601 /* AppDelegate.swift in Sources */,
 				BC36C1511EDF9C5C00849601 /* FolderDao.swift in Sources */,
 				BC36C15A1EDF9EE100849601 /* FolderTableViewCell.swift in Sources */,
@@ -481,7 +469,6 @@
 				BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */,
 				BC36C1551EDF9D1100849601 /* FolderDaoTests.swift in Sources */,
 				BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */,
-				BC36C13B1EDF9A4E00849601 /* ios_simple_todo_demoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,15 +483,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BC36C1291EDF9A4E00849601 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC36C12A1EDF9A4E00849601 /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
