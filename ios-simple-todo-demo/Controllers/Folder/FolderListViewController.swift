@@ -12,6 +12,7 @@ final class FolderListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    fileprivate var alert: UIAlertController!
 
     //MARK : - LifeCycle
     override func viewDidLoad() {
@@ -21,6 +22,11 @@ final class FolderListViewController: UIViewController {
 
     //MARK : - Action
     @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
+
+        if tableView.isEditing {
+        } else {
+            showCreateFolderAlert()
+        }
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -41,5 +47,43 @@ final class FolderListViewController: UIViewController {
     private func setupEditButton(isEditing: Bool) {
         editButton.title = isEditing ?
             "すべて削除" : "新規作成"
+    }
+
+    private func showCreateFolderAlert() {
+
+        alert = FolderAlertHelper()
+            .createFolder(type: .add,
+                          title: "新規フォルダ",
+                          message: "このフォルダの名前を入力してください。",
+                          delegate: self)
+        present(alert, animated: true, completion: {
+            self.alert = nil
+        })
+    }
+}
+
+//MARK : - AlertHelperDelegate
+extension FolderListViewController: FolderAlertHelperDelegate {
+
+    /// フォルダの追加または、更新完了通知を受信したときの処理
+    ///
+    /// - Parameters:
+    ///   - type: 更新タイプ(登録 or 更新)
+    ///   - folderName: フォルダ名
+    func setFolder(type: FolderAlertHelperType, folderName: String) {
+
+        switch type {
+        case .add:
+            print(folderName)
+            break
+
+        case .update(let index):
+            print(index)
+            break
+        }
+    }
+
+    /// 全フォルダとそれに関連するメモを削除する
+    func deleteAll() {
     }
 }

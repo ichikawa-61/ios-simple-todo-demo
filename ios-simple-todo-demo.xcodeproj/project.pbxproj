@@ -23,6 +23,7 @@
 		BC36C15A1EDF9EE100849601 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */; };
 		BC36C15C1EDF9F1800849601 /* FolderListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C15B1EDF9F1800849601 /* FolderListProvider.swift */; };
 		BC36C15E1EDF9F9400849601 /* FolderListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC36C15D1EDF9F9400849601 /* FolderListView.storyboard */; };
+		BC36C1611EDFA48600849601 /* FolderAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		BC36C15B1EDF9F1800849601 /* FolderListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderListProvider.swift; sourceTree = "<group>"; };
 		BC36C15D1EDF9F9400849601 /* FolderListView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FolderListView.storyboard; sourceTree = "<group>"; };
+		BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderAlertHelper.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BC36C1581EDF9ED500849601 /* Folder */,
+				BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,7 +206,6 @@
 			children = (
 				BC36C1541EDF9D1100849601 /* FolderDaoTests.swift */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -212,7 +214,6 @@
 			children = (
 				BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */,
 			);
-			name = Folder;
 			path = Folder;
 			sourceTree = "<group>";
 		};
@@ -223,7 +224,6 @@
 				BC36C15D1EDF9F9400849601 /* FolderListView.storyboard */,
 				BC36C1561EDF9E9F00849601 /* FolderListViewController.swift */,
 			);
-			name = Folder;
 			path = Folder;
 			sourceTree = "<group>";
 		};
@@ -437,6 +437,7 @@
 				BC36C1261EDF9A4E00849601 /* AppDelegate.swift in Sources */,
 				BC36C1511EDF9C5C00849601 /* FolderDao.swift in Sources */,
 				BC36C15A1EDF9EE100849601 /* FolderTableViewCell.swift in Sources */,
+				BC36C1611EDFA48600849601 /* FolderAlertHelper.swift in Sources */,
 				BC36C15C1EDF9F1800849601 /* FolderListProvider.swift in Sources */,
 				BC36C14D1EDF9BDB00849601 /* Folder.swift in Sources */,
 			);
