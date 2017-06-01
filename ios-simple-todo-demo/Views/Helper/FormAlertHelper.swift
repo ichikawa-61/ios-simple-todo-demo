@@ -8,35 +8,35 @@
 
 import UIKit
 
-enum FolderAlertHelperType {
+enum FormAlertHelperType {
     case add
     case update(index: Int)
 }
 
-protocol FolderAlertHelperDelegate: class {
-    func setFolder(type: FolderAlertHelperType, folderName: String)
+protocol FormAlertHelperDelegate: class {
+    func addAndUpdate(type: FormAlertHelperType, title: String)
     func deleteAll()
 }
 
-final class FolderAlertHelper: NSObject {
+final class FormAlertHelper: NSObject {
 
-    weak var delegate: FolderAlertHelperDelegate?
+    weak var delegate: FormAlertHelperDelegate?
     fileprivate var alert: UIAlertController!
 
-    /// 新規フォルダー作成用のダイアログを作成する
+    var title: String?
+    var message: String?
+    var placeholder: String?
+
+    /// 新規作成用のダイアログを作成する
     ///
     /// - Parameters:
     ///   - type: 更新タイプ（登録 or 更新)
-    ///   - title: ダイアログのタイトル
-    ///   - message: ダイアログのメッセージ
-    ///   - folderName: フォルダ名
+    ///   - title: タイトル
     ///   - delegate: 完了通知用のデリゲード
     /// - Returns: UIAlertViewControllerのインスタンス
-    func createFolder(type: FolderAlertHelperType,
-                      title: String,
-                      message: String,
-                      folderName: String = "",
-                      delegate: FolderAlertHelperDelegate) -> UIAlertController {
+    func createFolder(type: FormAlertHelperType,
+                      title: String = "",
+                      delegate: FormAlertHelperDelegate) -> UIAlertController {
 
         alert = UIAlertController(title: title,
                                   message: message,
@@ -54,7 +54,7 @@ final class FolderAlertHelper: NSObject {
                                         if let textField = self.alert.textFields?.first {
 
                                             if let folderName = textField.text {
-                                                self.delegate?.setFolder(type: type, folderName: folderName)
+                                                self.delegate?.addAndUpdate(type: type, title: folderName)
                                             }
                                         }
         }
@@ -63,8 +63,8 @@ final class FolderAlertHelper: NSObject {
         alert.addAction(saveAction)
         alert.addTextField { [weak self] (textField) in
 
-            textField.placeholder = "このフォルダの名前を入力してください。"
-            textField.text = folderName
+            textField.placeholder = self?.placeholder
+            textField.text = title
             textField.delegate = self
 
             if let saveButton = self?.alert.actions.last {
@@ -74,11 +74,11 @@ final class FolderAlertHelper: NSObject {
         return alert
     }
 
-    /// フォルダ削除用のアクションシートを作成する
+    /// 削除用のアクションシートを作成する
     ///
     /// - Parameter delegate: 完了通知用のデリゲード
     /// - Returns: UIAlertViewControllerのインスタンス
-    func deleateFolder(delegate: FolderAlertHelperDelegate) -> UIAlertController {
+    func deleateFolder(delegate: FormAlertHelperDelegate) -> UIAlertController {
 
         alert = UIAlertController(title: nil,
                                   message: nil,
@@ -102,7 +102,7 @@ final class FolderAlertHelper: NSObject {
 }
 
 // MARK: - UITextFieldDelegate
-extension FolderAlertHelper: UITextFieldDelegate {
+extension FormAlertHelper: UITextFieldDelegate {
 
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,

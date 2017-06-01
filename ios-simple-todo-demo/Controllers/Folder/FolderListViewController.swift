@@ -12,8 +12,8 @@ final class FolderListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    fileprivate var alert: UIAlertController!
     fileprivate let dataSource = FolderListProvider()
+    fileprivate let alert = FolderAlert()
 
     //MARK : - LifeCycle
     override func viewDidLoad() {
@@ -31,9 +31,9 @@ final class FolderListViewController: UIViewController {
     @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
 
         if tableView.isEditing {
-            showAllDeleteFolderAlert()
+            alert.showDeleteAll(topOf: self)
         } else {
-            showCreateFolderAlert()
+            alert.showCreate(topOf: self)
         }
     }
 
@@ -65,28 +65,6 @@ final class FolderListViewController: UIViewController {
         tableView.allowsSelectionDuringEditing = true
     }
 
-    /// フォルダの新規作成ダイアログを表示する
-    private func showCreateFolderAlert() {
-
-        alert = FolderAlertHelper()
-            .createFolder(type: .add,
-                          title: "新規フォルダ",
-                          message: "このフォルダの名前を入力してください。",
-                          delegate: self)
-        present(alert, animated: true, completion: { [weak self] in
-            self?.alert = nil
-        })
-    }
-
-    /// フォルダ全削除用のダイアログを表示する
-    private func showAllDeleteFolderAlert() {
-
-        alert = FolderAlertHelper().deleateFolder(delegate: self)
-        present(alert, animated: true, completion: { [weak self] in
-            self?.alert = nil
-        })
-    }
-
     /// フォルダ一覧を取得する
     func reloadFolderList() {
         dataSource.setFolders(folders: FolderDao.findAll())
@@ -95,22 +73,22 @@ final class FolderListViewController: UIViewController {
 }
 
 //MARK : - AlertHelperDelegate
-extension FolderListViewController: FolderAlertHelperDelegate {
+extension FolderListViewController: FormAlertHelperDelegate {
 
     /// フォルダの追加または、更新完了通知を受信したときの処理
     ///
     /// - Parameters:
     ///   - type: 更新タイプ(登録 or 更新)
-    ///   - folderName: フォルダ名
-    func setFolder(type: FolderAlertHelperType, folderName: String) {
+    ///   - title: フォルダ名
+    func addAndUpdate(type: FormAlertHelperType, title: String) {
 
         switch type {
         case .add:
-            FolderDao.add(title: folderName)
+            FolderDao.add(title: title)
 
         case .update(let index):
             let folder = dataSource.folder(index: index)
-            folder.title = folderName
+            folder.title = title
             FolderDao.update(folder: folder)
         }
         reloadFolderList()
@@ -133,28 +111,12 @@ extension FolderListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if isEditing {
-            showUpdateFolderAlert(row: indexPath.row)
+            let folder = dataSource.folder(index: indexPath.row)
+            alert.showUpdate(index: indexPath.row,
+                              title: folder.title,
+                              topOf: self)
             return
         }
-    }
-
-    /// フォルダ名の更新用ダイアログを表示する
-    ///
-    /// - Parameter row: TableViewの行番号
-    private func showUpdateFolderAlert(row: Int) {
-
-        let folder = dataSource.folder(index: row)
-
-        alert = FolderAlertHelper()
-            .createFolder(type: .update(index: row),
-                          title: "フォルダの名前を変更",
-                          message: "このフォルダの新しい名前を入力してください。",
-                          folderName: folder.title,
-                          delegate: self)
-
-        present(alert, animated: true, completion: { [weak self] in
-            self?.alert = nil
-        })
     }
 }
 

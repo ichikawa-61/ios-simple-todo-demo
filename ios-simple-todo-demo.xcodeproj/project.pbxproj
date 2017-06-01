@@ -20,11 +20,16 @@
 		BC36C15A1EDF9EE100849601 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */; };
 		BC36C15C1EDF9F1800849601 /* FolderListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C15B1EDF9F1800849601 /* FolderListProvider.swift */; };
 		BC36C15E1EDF9F9400849601 /* FolderListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC36C15D1EDF9F9400849601 /* FolderListViewController.storyboard */; };
-		BC36C1611EDFA48600849601 /* FolderAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */; };
+		BC36C1611EDFA48600849601 /* FormAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1601EDFA48600849601 /* FormAlertHelper.swift */; };
 		BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */; };
 		BC36C16B1EDFB31D00849601 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16A1EDFB31D00849601 /* ToDo.swift */; };
 		BC36C16D1EDFB37500849601 /* ToDoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16C1EDFB37500849601 /* ToDoDao.swift */; };
 		BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */; };
+		BC36C1731EDFC36200849601 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1721EDFC36200849601 /* ToDoTableViewCell.swift */; };
+		BC36C1751EDFC47100849601 /* ToDoListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1741EDFC47100849601 /* ToDoListProvider.swift */; };
+		BC36C1771EDFC95700849601 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1761EDFC95700849601 /* Alertable.swift */; };
+		BC36C1791EDFD5A800849601 /* FolderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1781EDFD5A800849601 /* FolderAlert.swift */; };
+		BC36C17B1EDFD5E200849601 /* ToDoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C17A1EDFD5E200849601 /* ToDoAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,11 +62,16 @@
 		BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		BC36C15B1EDF9F1800849601 /* FolderListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderListProvider.swift; sourceTree = "<group>"; };
 		BC36C15D1EDF9F9400849601 /* FolderListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FolderListViewController.storyboard; sourceTree = "<group>"; };
-		BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderAlertHelper.swift; sourceTree = "<group>"; };
+		BC36C1601EDFA48600849601 /* FormAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormAlertHelper.swift; sourceTree = "<group>"; };
 		BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCellTests.swift; sourceTree = "<group>"; };
 		BC36C16A1EDFB31D00849601 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		BC36C16C1EDFB37500849601 /* ToDoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDao.swift; sourceTree = "<group>"; };
 		BC36C16E1EDFB63B00849601 /* ToDoDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDaoTests.swift; sourceTree = "<group>"; };
+		BC36C1721EDFC36200849601 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		BC36C1741EDFC47100849601 /* ToDoListProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListProvider.swift; sourceTree = "<group>"; };
+		BC36C1761EDFC95700849601 /* Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alertable.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		BC36C1781EDFD5A800849601 /* FolderAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderAlert.swift; sourceTree = "<group>"; };
+		BC36C17A1EDFD5E200849601 /* ToDoAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoAlert.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				BC36C15F1EDF9F9800849601 /* Folder */,
+				BC36C1701EDFC33600849601 /* ToDo */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,7 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				BC36C1581EDF9ED500849601 /* Folder */,
-				BC36C1601EDFA48600849601 /* FolderAlertHelper.swift */,
+				BC36C17C1EDFD60200849601 /* Helper */,
+				BC36C1711EDFC34200849601 /* ToDo */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +226,7 @@
 		BC36C1581EDF9ED500849601 /* Folder */ = {
 			isa = PBXGroup;
 			children = (
+				BC36C1781EDFD5A800849601 /* FolderAlert.swift */,
 				BC36C1591EDF9EE100849601 /* FolderTableViewCell.swift */,
 			);
 			path = Folder;
@@ -244,6 +257,35 @@
 				BC36C16C1EDFB37500849601 /* ToDoDao.swift */,
 			);
 			path = ToDo;
+			sourceTree = "<group>";
+		};
+		BC36C1701EDFC33600849601 /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C1741EDFC47100849601 /* ToDoListProvider.swift */,
+			);
+			name = ToDo;
+			path = ToDo;
+			sourceTree = "<group>";
+		};
+		BC36C1711EDFC34200849601 /* ToDo */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C17A1EDFD5E200849601 /* ToDoAlert.swift */,
+				BC36C1721EDFC36200849601 /* ToDoTableViewCell.swift */,
+			);
+			name = ToDo;
+			path = ToDo;
+			sourceTree = "<group>";
+		};
+		BC36C17C1EDFD60200849601 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C1761EDFC95700849601 /* Alertable.swift */,
+				BC36C1601EDFA48600849601 /* FormAlertHelper.swift */,
+			);
+			name = Helper;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,15 +491,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC36C1791EDFD5A800849601 /* FolderAlert.swift in Sources */,
 				BC36C1571EDF9E9F00849601 /* FolderListViewController.swift in Sources */,
 				BC36C16D1EDFB37500849601 /* ToDoDao.swift in Sources */,
+				BC36C17B1EDFD5E200849601 /* ToDoAlert.swift in Sources */,
 				BC36C16B1EDFB31D00849601 /* ToDo.swift in Sources */,
 				BC36C14F1EDF9C2F00849601 /* RealmDaoHelper.swift in Sources */,
 				BC36C1261EDF9A4E00849601 /* AppDelegate.swift in Sources */,
+				BC36C1771EDFC95700849601 /* Alertable.swift in Sources */,
 				BC36C1511EDF9C5C00849601 /* FolderDao.swift in Sources */,
+				BC36C1731EDFC36200849601 /* ToDoTableViewCell.swift in Sources */,
 				BC36C15A1EDF9EE100849601 /* FolderTableViewCell.swift in Sources */,
-				BC36C1611EDFA48600849601 /* FolderAlertHelper.swift in Sources */,
+				BC36C1611EDFA48600849601 /* FormAlertHelper.swift in Sources */,
 				BC36C15C1EDF9F1800849601 /* FolderListProvider.swift in Sources */,
+				BC36C1751EDFC47100849601 /* ToDoListProvider.swift in Sources */,
 				BC36C14D1EDF9BDB00849601 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
