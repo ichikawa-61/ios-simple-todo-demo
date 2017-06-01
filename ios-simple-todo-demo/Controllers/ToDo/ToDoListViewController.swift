@@ -1,5 +1,5 @@
 //
-//  FolderListViewController.swift
+//  ToDoListViewController.swift
 //  ios-simple-todo-demo
 //
 //  Created by Eiji Kushida on 2017/06/01.
@@ -8,12 +8,28 @@
 
 import UIKit
 
-final class FolderListViewController: UIViewController {
+final class ToDoListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    fileprivate let dataSource = FolderListProvider()
-    fileprivate let alert = FolderAlert()
+    fileprivate let dataSource = ToDoListProvider()
+    fileprivate let alert = ToDoAlert()
+    fileprivate var folder: Folder!
+
+    /// ToDo一覧画面のインスタンスを取得する
+    ///
+    /// - Parameter folder: フォルダ
+    /// - Returns: ToDo一覧画面のインスタンス
+    static func configuredWith(folder: Folder) -> ToDoListViewController {
+
+        let vc = UIStoryboard
+            .viewController(storyboardName: ToDoListViewController.className,
+                            identifier: ToDoListViewController.className)
+            as? ToDoListViewController
+        vc?.folder = folder
+        vc?.title = folder.title
+        return vc!
+    }
 
     //MARK : - LifeCycle
     override func viewDidLoad() {
@@ -24,11 +40,11 @@ final class FolderListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadFolderList()
+        reloadToDoList()
     }
 
     //MARK : - Action
-    @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
+    @IBAction func didTapEditToDo(_ sender: UIBarButtonItem) {
 
         if tableView.isEditing {
             alert.showDeleteAll(topOf: self)
@@ -54,7 +70,7 @@ final class FolderListViewController: UIViewController {
     /// - Parameter isEditing: 編集モードか？
     private func setupToolBar(isEditing: Bool) {
         editButton.title = isEditing ?
-            "すべて削除" : "新規フォルダ作成"
+            "すべて削除" : "新規タスク作成"
     }
 
     /// テーブルビューを設定する
@@ -65,15 +81,25 @@ final class FolderListViewController: UIViewController {
         tableView.allowsSelectionDuringEditing = true
     }
 
-    /// フォルダ一覧を取得する
-    func reloadFolderList() {
-        dataSource.setFolders(folders: FolderDao.findAll())
+    /// タスク一覧を取得する
+    func reloadToDoList() {
+        dataSource.setToDos(todos: ToDoDao.findAll())
         tableView.reloadData()
     }
+
+    /// タスクの件数を更新する
+    fileprivate func updateToDoCount() {
+
+        let todoCount = dataSource.count()
+        let updateFolder = folder
+        updateFolder?.count = todoCount
+        FolderDao.update(folder: updateFolder!)
+    }
+
 }
 
 //MARK : - AlertHelperDelegate
-extension FolderListViewController: FormAlertHelperDelegate {
+extension ToDoListViewController: FormAlertHelperDelegate {
 
     /// フォルダの追加または、更新完了通知を受信したときの処理
     ///
@@ -84,60 +110,51 @@ extension FolderListViewController: FormAlertHelperDelegate {
 
         switch type {
         case .add:
-            FolderDao.add(title: title)
+            ToDoDao.add(folderID: folder.folderID, title: title)
 
         case .update(let index):
-            let folder = dataSource.folder(index: index)
-            folder.title = title
-            FolderDao.update(folder: folder)
+            let todo = dataSource.todo(index: index)
+            todo.title = title
+            ToDoDao.update(todo: todo)
         }
-        reloadFolderList()
+
+        reloadToDoList()
+        updateToDoCount()
         tableView.reloadData()
     }
 
     /// 全フォルダとそれに関連するメモを削除する
     func deleteAll() {
-        FolderDao.deleteAll()
         ToDoDao.deleteAll()
-        reloadFolderList()
+        reloadToDoList()
+        updateToDoCount()
         tableView.reloadData()
     }
 }
 
 //MARK : - UITableViewDelegate
-extension FolderListViewController: UITableViewDelegate {
+extension ToDoListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if isEditing {
-            let folder = dataSource.folder(index: indexPath.row)
+            let folder = dataSource.todo(index: indexPath.row)
             alert.showUpdate(index: indexPath.row,
-                              title: folder.title,
-                              topOf: self)
+                             title: folder.title,
+                             topOf: self)
             return
         }
-        showMemoListViewController(indexPath: indexPath)
-    }
-
-    /// メモ一覧画面を表示する
-    ///
-    /// - Parameter indexPath: TableViewのIndexPath
-    private func showMemoListViewController(indexPath: IndexPath) {
-
-        let folder = dataSource.folder(index: indexPath.row)
-        let vc = ToDoListViewController.configuredWith(folder: folder)
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-//MARK : - FolderProviderDelegate
-extension FolderListViewController: FolderListProviderDelegate {
+//MARK : - ToDoListProviderDelegate
+extension ToDoListViewController: ToDoListProviderDelegate {
 
-    func deleteFolder(index: Int) {
-        FolderDao.delete(folderID: index)
-        ToDoDao.deleteAll(folderID: index)
+    func deleteToDo(todoID: Int) {
+        ToDoDao.delete(todoID: todoID)
+        updateToDoCount()
         tableView.reloadData()
     }
 }
