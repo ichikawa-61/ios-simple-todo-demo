@@ -21,33 +21,33 @@ class FolderDaoTests: XCTestCase {
     }
 
     /// 登録できるか確認する
-    func testAddMemo() {
+    func testAddFolder() {
 
         FolderDao.add(title: "タイトル")
-        verifyMemo(folderID: 1, title: "タイトル")
+        verifyFolder(folderID: 1, title: "タイトル")
     }
 
     /// 変更できるか確認する
-    func testUpdateMemo() {
+    func testUpdateFolder() {
 
         FolderDao.add(title: "タイトル")
 
         let result = FolderDao.findAll().first
         result?.title = "タイトル2"
         FolderDao.update(folder: result!)
-        verifyMemo(folderID: 1, title: "タイトル2")
+        verifyFolder(folderID: 1, title: "タイトル2")
     }
 
     /// 削除できるか確認する
-    func testDeleteMemo() {
+    func testDeleteFolder() {
 
         FolderDao.add(title: "タイトル")
         FolderDao.delete(folderID: 1)
         verifyCount(count: 0)
     }
 
-    /// メモが取得できるか？
-    func testFindAllMemo() {
+    /// フォルダが取得できるか？
+    func testFindAllFolder() {
 
         FolderDao.add(title: "タイトル1")
         FolderDao.add(title: "タイトル2")
@@ -55,8 +55,8 @@ class FolderDaoTests: XCTestCase {
         verifyCount(count: 3)
     }
 
-    /// メモが古い順に取得できるか？
-    func testFindAllMemo_ForOrder() {
+    /// フォルダが古い順に取得できるか？
+    func testFindAllFolder_ForOrder() {
 
         FolderDao.add(title: "タイトル1")
         FolderDao.add(title: "タイトル2")
@@ -69,8 +69,8 @@ class FolderDaoTests: XCTestCase {
         XCTAssertEqual("タイトル3", result[2].title)
     }
 
-    /// 該当のメモが取得できるか？
-    func testFindByIDMemo() {
+    /// 該当のフォルダが取得できるか？
+    func testFindByIDFolder() {
 
         FolderDao.add(title: "タイトル1")
         FolderDao.add(title: "タイトル2")
@@ -81,7 +81,7 @@ class FolderDaoTests: XCTestCase {
     }
 
     //MARK : - Helper
-    private func verifyMemo(folderID: Int, title: String) {
+    private func verifyFolder(folderID: Int, title: String) {
 
         let result = FolderDao.findAll()
 
