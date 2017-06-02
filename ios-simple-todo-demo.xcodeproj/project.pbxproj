@@ -34,6 +34,7 @@
 		BC36C1801EDFD8F000849601 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C17F1EDFD8F000849601 /* ToDoListViewController.swift */; };
 		BC36C1821EE0F3C300849601 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC36C1811EE0F3C300849601 /* Localizable.strings */; };
 		BC36C1841EE0F44E00849601 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1831EE0F44E00849601 /* Constrains.swift */; };
+		BC36C1861EE0FA2B00849601 /* ToDoTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1851EE0FA2B00849601 /* ToDoTableViewCellTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		BC36C17F1EDFD8F000849601 /* ToDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		BC36C1811EE0F3C300849601 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC36C1831EE0F44E00849601 /* Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
+		BC36C1851EE0FA2B00849601 /* ToDoTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCellTests.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				BC36C1671EDFB02E00849601 /* FolderTableViewCellTests.swift */,
+				BC36C1851EE0FA2B00849601 /* ToDoTableViewCellTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */,
 				BC36C1551EDF9D1100849601 /* FolderDaoTests.swift in Sources */,
 				BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */,
+				BC36C1861EE0FA2B00849601 /* ToDoTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
