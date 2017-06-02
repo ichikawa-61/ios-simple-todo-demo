@@ -35,6 +35,8 @@
 		BC36C1821EE0F3C300849601 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC36C1811EE0F3C300849601 /* Localizable.strings */; };
 		BC36C1841EE0F44E00849601 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1831EE0F44E00849601 /* Constrains.swift */; };
 		BC36C1861EE0FA2B00849601 /* ToDoTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1851EE0FA2B00849601 /* ToDoTableViewCellTests.swift */; };
+		BC36C1891EE0FC3B00849601 /* FolderListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1881EE0FC3B00849601 /* FolderListViewControllerTests.swift */; };
+		BC36C18B1EE0FF1700849601 /* ToDoListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C18A1EE0FF1700849601 /* ToDoListViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		BC36C1811EE0F3C300849601 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		BC36C1831EE0F44E00849601 /* Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
 		BC36C1851EE0FA2B00849601 /* ToDoTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCellTests.swift; sourceTree = "<group>"; };
+		BC36C1881EE0FC3B00849601 /* FolderListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderListViewControllerTests.swift; sourceTree = "<group>"; };
+		BC36C18A1EE0FF1700849601 /* ToDoListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerTests.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -151,10 +155,10 @@
 			children = (
 				BC36C1451EDF9B5400849601 /* Controllers */,
 				BC36C1491EDF9B7700849601 /* Extensions */,
-				BC36C1311EDF9A4E00849601 /* Info.plist */,
 				BC36C1461EDF9B6200849601 /* Models */,
 				BC36C1481EDF9B6D00849601 /* Others */,
 				BC36C1471EDF9B6800849601 /* Views */,
+				BC36C1311EDF9A4E00849601 /* Info.plist */,
 			);
 			path = "ios-simple-todo-demo";
 			sourceTree = "<group>";
@@ -162,6 +166,7 @@
 		BC36C1391EDF9A4E00849601 /* ios-simple-todo-demoTests */ = {
 			isa = PBXGroup;
 			children = (
+				BC36C1871EE0FC2700849601 /* Controllers */,
 				BC36C1531EDF9D0100849601 /* Models */,
 				BC36C1621EDFAB2200849601 /* Views */,
 				BC36C13C1EDF9A4E00849601 /* Info.plist */,
@@ -203,9 +208,9 @@
 			children = (
 				BC36C1251EDF9A4E00849601 /* AppDelegate.swift */,
 				BC36C12C1EDF9A4E00849601 /* Assets.xcassets */,
+				BC36C1831EE0F44E00849601 /* Constrains.swift */,
 				BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */,
 				BC36C1811EE0F3C300849601 /* Localizable.strings */,
-				BC36C1831EE0F44E00849601 /* Constrains.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -275,8 +280,8 @@
 		BC36C1701EDFC33600849601 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				BC36C17D1EDFD8D600849601 /* ToDoListViewController.storyboard */,
 				BC36C1741EDFC47100849601 /* ToDoListProvider.swift */,
+				BC36C17D1EDFD8D600849601 /* ToDoListViewController.storyboard */,
 				BC36C17F1EDFD8F000849601 /* ToDoListViewController.swift */,
 			);
 			path = ToDo;
@@ -298,6 +303,16 @@
 				BC36C1601EDFA48600849601 /* FormAlertHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		BC36C1871EE0FC2700849601 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC36C1881EE0FC3B00849601 /* FolderListViewControllerTests.swift */,
+				BC36C18A1EE0FF1700849601 /* ToDoListViewControllerTests.swift */,
+			);
+			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,7 +546,9 @@
 			files = (
 				BC36C1681EDFB02E00849601 /* FolderTableViewCellTests.swift in Sources */,
 				BC36C1551EDF9D1100849601 /* FolderDaoTests.swift in Sources */,
+				BC36C1891EE0FC3B00849601 /* FolderListViewControllerTests.swift in Sources */,
 				BC36C16F1EDFB63B00849601 /* ToDoDaoTests.swift in Sources */,
+				BC36C18B1EE0FF1700849601 /* ToDoListViewControllerTests.swift in Sources */,
 				BC36C1861EE0FA2B00849601 /* ToDoTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

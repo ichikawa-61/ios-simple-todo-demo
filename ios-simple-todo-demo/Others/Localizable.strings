@@ -6,8 +6,8 @@
   Copyright © 2017年 Eiji Kushida. All rights reserved.
 */
 
-"addFolderButton" = "フォルダ追加";
-"addTaskButton" = "タスク追加";
+"addFolderButton" = "新規フォルダ";
+"addTaskButton" = "新規タスク";
 "deleteAllButton" = "すべて削除";
 
 "cancelButtonTitle" = "キャンセル";
