@@ -12,6 +12,7 @@
 
 "cancelButtonTitle" = "キャンセル";
 "saveButtonTitle" = "保存";
+"deleteButtonTitle" = "削除";
 
 "addNewFolderTitle" = "新規フォルダ";
 "addNewFolderMessage" = "このフォルダの名前を入力してください。";

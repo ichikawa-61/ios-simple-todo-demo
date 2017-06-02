@@ -44,11 +44,11 @@ final class FormAlertHelper: NSObject {
 
         self.delegate = delegate
 
-        let cancelAction = UIAlertAction(title: "キャンセル",
+        let cancelAction = UIAlertAction(title: Constrains.Alert.cancelButton,
                                          style: .cancel,
                                          handler: nil)
 
-        let saveAction = UIAlertAction(title: "保存",
+        let saveAction = UIAlertAction(title: Constrains.Alert.saveButton,
                                        style: .default) { _ in
 
                                         if let textField = self.alert.textFields?.first {
@@ -86,11 +86,11 @@ final class FormAlertHelper: NSObject {
 
         self.delegate = delegate
 
-        let cancelAction = UIAlertAction(title: "キャンセル",
+        let cancelAction = UIAlertAction(title: Constrains.Alert.cancelButton,
                                          style: .cancel,
                                          handler: nil)
 
-        let deleteAction = UIAlertAction(title: "削除",
+        let deleteAction = UIAlertAction(title: Constrains.Alert.deleteAllButton,
                                          style: .destructive) { _ in
                                             self.delegate?.deleteAll()
         }

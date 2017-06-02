@@ -45,5 +45,6 @@ struct Constrains {
         static let cancelButton = "cancelButtonTitle".localized()
         static let saveButton = "saveButtonTitle".localized()
         static let deleteAllButton = "deleteAllButton".localized()
+        static let deleteButtonTitle = "deleteButtonTitle".localized()
     }
 }
