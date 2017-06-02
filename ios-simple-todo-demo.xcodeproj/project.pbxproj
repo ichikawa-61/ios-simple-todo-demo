@@ -32,6 +32,8 @@
 		BC36C17B1EDFD5E200849601 /* ToDoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C17A1EDFD5E200849601 /* ToDoAlert.swift */; };
 		BC36C17E1EDFD8D600849601 /* ToDoListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC36C17D1EDFD8D600849601 /* ToDoListViewController.storyboard */; };
 		BC36C1801EDFD8F000849601 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C17F1EDFD8F000849601 /* ToDoListViewController.swift */; };
+		BC36C1821EE0F3C300849601 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC36C1811EE0F3C300849601 /* Localizable.strings */; };
+		BC36C1841EE0F44E00849601 /* Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC36C1831EE0F44E00849601 /* Constrains.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		BC36C17A1EDFD5E200849601 /* ToDoAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoAlert.swift; sourceTree = "<group>"; };
 		BC36C17D1EDFD8D600849601 /* ToDoListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoListViewController.storyboard; sourceTree = "<group>"; };
 		BC36C17F1EDFD8F000849601 /* ToDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		BC36C1811EE0F3C300849601 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		BC36C1831EE0F44E00849601 /* Constrains.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrains.swift; sourceTree = "<group>"; };
 		CA98A90F5F0C00AC4CBC95B8 /* Pods-ios-simple-todo-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-simple-todo-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-simple-todo-demo/Pods-ios-simple-todo-demo.release.xcconfig"; sourceTree = "<group>"; };
 		D4AA1022662864F85294DA1C /* Pods_ios_simple_todo_demoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_simple_todo_demoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -198,6 +202,8 @@
 				BC36C1251EDF9A4E00849601 /* AppDelegate.swift */,
 				BC36C12C1EDF9A4E00849601 /* Assets.xcassets */,
 				BC36C12E1EDF9A4E00849601 /* LaunchScreen.storyboard */,
+				BC36C1811EE0F3C300849601 /* Localizable.strings */,
+				BC36C1831EE0F44E00849601 /* Constrains.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC36C1821EE0F3C300849601 /* Localizable.strings in Resources */,
 				BC36C1301EDF9A4E00849601 /* LaunchScreen.storyboard in Resources */,
 				BC36C12D1EDF9A4E00849601 /* Assets.xcassets in Resources */,
 				BC36C15E1EDF9F9400849601 /* FolderListViewController.storyboard in Resources */,
@@ -496,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC36C1791EDFD5A800849601 /* FolderAlert.swift in Sources */,
+				BC36C1841EE0F44E00849601 /* Constrains.swift in Sources */,
 				BC36C1571EDF9E9F00849601 /* FolderListViewController.swift in Sources */,
 				BC36C16D1EDFB37500849601 /* ToDoDao.swift in Sources */,
 				BC36C17B1EDFD5E200849601 /* ToDoAlert.swift in Sources */,

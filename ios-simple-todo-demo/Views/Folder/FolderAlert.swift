@@ -13,9 +13,9 @@ final class FolderAlert: NSObject, FormAlertable {
     func showCreate(topOf: UIViewController) {
 
         let helper = FormAlertHelper()
-        helper.title = "新規フォルダ"
-        helper.message = "このフォルダの名前を入力してください。"
-        helper.placeholder = "このフォルダの名前を入力してください。"
+        helper.title = Constrains.Alert.addNewFolderTitle
+        helper.message = Constrains.Alert.addNewFolderMessage
+        helper.placeholder = Constrains.Alert.addNewFolderPlaceholder
 
         let alert = helper.createFolder(type: .add,
                                         delegate: topOf as! FormAlertHelperDelegate)
@@ -25,9 +25,9 @@ final class FolderAlert: NSObject, FormAlertable {
     func showUpdate(index: Int, title: String, topOf: UIViewController) {
 
         let helper = FormAlertHelper()
-        helper.title = "フォルダの名前を変更"
-        helper.message = "このフォルダの新しい名前を入力してください。"
-        helper.placeholder = ""
+        helper.title = Constrains.Alert.updateNewFolderTitle
+        helper.message = Constrains.Alert.updateNewFolderMessage
+        helper.placeholder = Constrains.Alert.updateNewFolderPlaceholder
 
         let alert = helper.createFolder(type: .update(index: index),
                                         title: title,

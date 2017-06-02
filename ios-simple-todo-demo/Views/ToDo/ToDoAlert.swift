@@ -13,9 +13,9 @@ final class ToDoAlert: NSObject, FormAlertable {
     func showCreate(topOf: UIViewController) {
 
         let helper = FormAlertHelper()
-        helper.title = "新規タスク"
-        helper.message = "このタスクの名前を入力してください。"
-        helper.placeholder = "このタスクの名前を入力してください。"
+        helper.title = Constrains.Alert.addNewTaskTitle
+        helper.message = Constrains.Alert.addNewTaskMessage
+        helper.placeholder = Constrains.Alert.addNewTaskPlaceholder
 
         let alert = helper.createFolder(type: .add,
                                         delegate: topOf as! FormAlertHelperDelegate)
@@ -26,9 +26,9 @@ final class ToDoAlert: NSObject, FormAlertable {
     func showUpdate(index: Int, title: String, topOf: UIViewController) {
 
         let helper = FormAlertHelper()
-        helper.title = "タスクの名前を変更"
-        helper.message = "このタスクの新しい名前を入力してください。"
-        helper.placeholder = ""
+        helper.title = Constrains.Alert.updateNewTaskTitle
+        helper.message = Constrains.Alert.updateNewTaskMessage
+        helper.placeholder = Constrains.Alert.updateNewFolderPlaceholder
 
         let alert = helper.createFolder(type: .update(index: index),
                                         title: title,

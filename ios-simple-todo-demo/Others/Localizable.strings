@@ -1,0 +1,30 @@
+/* 
+  Localizable.string.strings
+  ios-simple-todo-demo
+
+  Created by Eiji Kushida on 2017/06/02.
+  Copyright © 2017年 Eiji Kushida. All rights reserved.
+*/
+
+"addFolderButton" = "フォルダ追加";
+"addTaskButton" = "タスク追加";
+"deleteAllButton" = "すべて削除";
+
+"cancelButtonTitle" = "キャンセル";
+"saveButtonTitle" = "保存";
+
+"addNewFolderTitle" = "新規フォルダ";
+"addNewFolderMessage" = "このフォルダの名前を入力してください。";
+"addNewFolderPlaceholder" = "名前";
+
+"updateNewFolderTitle" = "フォルダの名前を変更";
+"updateNewFolderMessage" = "このフォルダの新しい名前を入力してください。";
+"updateNewFolderPlaceholder" = "";
+
+"addNewTaskTitle" = "新規タスク";
+"addNewTaskMessage" = "このタスクの名前を入力してください。";
+"addNewTaskPlaceholder" = "名前";
+
+"updateNewTaskTitle" = "タスクの名前を変更";
+"updateNewTaskMessage" = "このタスクの新しい名前を入力してください。";
+"updateNewTaskPlaceholder" = "";

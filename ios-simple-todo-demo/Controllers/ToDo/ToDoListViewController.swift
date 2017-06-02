@@ -70,7 +70,7 @@ final class ToDoListViewController: UIViewController {
     /// - Parameter isEditing: 編集モードか？
     private func setupToolBar(isEditing: Bool) {
         editButton.title = isEditing ?
-            "すべて削除" : "新規タスク作成"
+            Constrains.ToolBar.deleteAllButton : Constrains.ToolBar.addTaskButton
     }
 
     /// テーブルビューを設定する
