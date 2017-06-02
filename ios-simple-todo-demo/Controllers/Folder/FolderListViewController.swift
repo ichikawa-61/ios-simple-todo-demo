@@ -54,7 +54,7 @@ final class FolderListViewController: UIViewController {
     /// - Parameter isEditing: 編集モードか？
     private func setupToolBar(isEditing: Bool) {
         editButton.title = isEditing ?
-            "すべて削除" : "新規フォルダ作成"
+            "すべて削除" : "新規フォルダ"
     }
 
     /// テーブルビューを設定する
