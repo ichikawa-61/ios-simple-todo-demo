@@ -14,6 +14,10 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
     init() {
         do {
             try realm = Realm()
+            
+            #if DEBUG
+                print(Realm.Configuration.defaultConfiguration.fileURL.debugDescription)
+            #endif
         } catch let error {
             fatalError(error.localizedDescription)
         }
