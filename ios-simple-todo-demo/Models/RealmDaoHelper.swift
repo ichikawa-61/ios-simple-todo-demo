@@ -90,7 +90,8 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
 
     /**
      * T: RealmSwift.Object で primaryKey()が実装されている時のみ有効
-     */
+     */    
+    @discardableResult
     func update(data: T, block:(() -> Void)? = nil) -> Bool {
         do {
             try realm.write {

@@ -11,6 +11,7 @@ import XCTest
 
 class ToDoTableViewCellTests: XCTestCase {
 
+ /*
     var tableView: UITableView!
     let dataSource = FakeDataSource()
     var cell: ToDoTableViewCell!
@@ -56,6 +57,7 @@ class ToDoTableViewCellTests: XCTestCase {
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return formatter.date(from: dateString)!
     }
+ */
 }
 
 extension ToDoTableViewCellTests {

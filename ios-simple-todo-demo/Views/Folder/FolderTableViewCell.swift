@@ -21,12 +21,12 @@ final class FolderTableViewCell: UITableViewCell {
     var folder: Folder? {
 
         didSet {
-            self.titleLabel.text = folder?.title
+            titleLabel.text = folder?.title
 
             if let count = folder?.count {
-                self.countLabel.text = "\(count)"
+                countLabel.text = "\(count)"
             } else {
-                self.countLabel.text = "0"
+                countLabel.text = "0"
             }
         }
     }

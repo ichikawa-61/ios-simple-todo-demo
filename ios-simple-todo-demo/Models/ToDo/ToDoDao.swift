@@ -43,7 +43,7 @@ final class ToDoDao {
         object.folderID = target.folderID
         object.title = todo.title
         object.date = Date().now()
-        _ = dao.update(data: object)
+        dao.update(data: object)
     }
 
     /// ToDoを削除する

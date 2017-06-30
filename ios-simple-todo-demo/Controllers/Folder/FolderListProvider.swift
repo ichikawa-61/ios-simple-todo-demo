@@ -9,18 +9,20 @@
 import UIKit
 
 protocol FolderListProviderDelegate: class {
-    func deleteFolder(index: Int)
+    func deleteFolder(folderID: Int)
 }
 
 final class FolderListProvider: NSObject {
 
+    //MARK : - Properties
     weak var delegate: FolderListProviderDelegate?
-    fileprivate var folders: [Folder] = []
+    fileprivate var folders = [Folder]()
 
+    //MARK : - Public Methods
     /// フォルダ一覧を設定する
     ///
     /// - Parameter folders: フォルダ一覧
-    func setFolders(folders: [Folder]) {
+    func set(folders: [Folder]) {
         self.folders = folders
     }
 
@@ -32,7 +34,7 @@ final class FolderListProvider: NSObject {
         guard index < folders.count else {
             fatalError("foldersの要素数を超えました。")
         }
-        return self.folders[index]
+        return folders[index]
     }
 }
 
@@ -62,7 +64,7 @@ extension FolderListProvider: UITableViewDataSource {
 
             let _folder = folder(index: indexPath.row)
             folders.remove(at: indexPath.row)
-            delegate?.deleteFolder(index: _folder.folderID)
+            delegate?.deleteFolder(folderID: _folder.folderID)
         }
     }
 }

@@ -41,7 +41,7 @@ final class FolderDao {
         object.title = folder.title
         object.date = Date().now()
         object.count = folder.count
-        _ = dao.update(data: object)
+        dao.update(data: object)
     }
 
     /// フォルダを削除する

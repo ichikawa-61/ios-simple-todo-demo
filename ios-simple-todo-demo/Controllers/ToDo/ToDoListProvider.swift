@@ -14,13 +14,15 @@ protocol ToDoListProviderDelegate: class {
 
 final class ToDoListProvider: NSObject {
 
-    fileprivate var todos: [ToDo] = []
+    //MARK : - Properties    
+    fileprivate var todos = [ToDo]()
     weak var delegate: ToDoListProviderDelegate?
 
+    //MARK : - Public Methods
     /// ToDo一覧を設定する
     ///
     /// - Parameter todos: メモ一覧
-    func setToDos(todos: [ToDo]) {
+    func set(todos: [ToDo]) {
         self.todos = todos
     }
 

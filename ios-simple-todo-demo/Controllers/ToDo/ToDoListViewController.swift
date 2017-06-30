@@ -10,12 +10,26 @@ import UIKit
 
 final class ToDoListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    //MARK : - Properties
     fileprivate let dataSource = ToDoListProvider()
     fileprivate let alert = ToDoAlert()
     fileprivate var folder: Folder!
+    
+    //MARK : - IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    //MARK : - Action
+    @IBAction func didTapEditToDo(_ sender: UIBarButtonItem) {
+        
+        if tableView.isEditing {
+            alert.showDeleteAll(topOf: self)
+        } else {
+            alert.showCreate(topOf: self)
+        }
+    }
 
+    //MARK : - Initializers
     /// ToDo一覧画面のインスタンスを取得する
     ///
     /// - Parameter folder: フォルダ
@@ -43,22 +57,29 @@ final class ToDoListViewController: UIViewController {
         reloadToDoList()
     }
 
-    //MARK : - Action
-    @IBAction func didTapEditToDo(_ sender: UIBarButtonItem) {
-
-        if tableView.isEditing {
-            alert.showDeleteAll(topOf: self)
-        } else {
-            alert.showCreate(topOf: self)
-        }
-    }
-
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.isEditing = editing
         setupToolBar(isEditing: editing)
     }
+    
+    //MARK : - FilePrivate Methods
+    /// タスク一覧を取得する
+    fileprivate func reloadToDoList() {
+        dataSource.set(todos: ToDoDao.findAll(folderID: folder.folderID))
+        tableView.reloadData()
+    }
+    
+    /// タスクの件数を更新する
+    fileprivate func updateToDoCount() {
+        
+        let todoCount = dataSource.count()
+        let updateFolder = folder
+        updateFolder?.count = todoCount
+        FolderDao.update(folder: updateFolder!)
+    }
 
+    //MARK : - Private Methods
     /// ナビゲーションバーを設定する
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = editButtonItem
@@ -80,22 +101,6 @@ final class ToDoListViewController: UIViewController {
         tableView.delegate = self
         tableView.allowsSelectionDuringEditing = true
     }
-
-    /// タスク一覧を取得する
-    func reloadToDoList() {
-        dataSource.setToDos(todos: ToDoDao.findAll(folderID: folder.folderID))
-        tableView.reloadData()
-    }
-
-    /// タスクの件数を更新する
-    fileprivate func updateToDoCount() {
-
-        let todoCount = dataSource.count()
-        let updateFolder = folder
-        updateFolder?.count = todoCount
-        FolderDao.update(folder: updateFolder!)
-    }
-
 }
 
 //MARK : - AlertHelperDelegate
@@ -152,6 +157,9 @@ extension ToDoListViewController: UITableViewDelegate {
 //MARK : - ToDoListProviderDelegate
 extension ToDoListViewController: ToDoListProviderDelegate {
 
+    /// タスクを削除する
+    ///
+    /// - Parameter todoID: タスクID
     func deleteToDo(todoID: Int) {
         ToDoDao.delete(todoID: todoID)
         updateToDoCount()

@@ -11,6 +11,7 @@ import XCTest
 
 class FolderTableViewCellTests: XCTestCase {
 
+/*
     var tableView: UITableView!
     let dataSource = FakeDataSource()
     var cell: FolderTableViewCell!
@@ -63,6 +64,7 @@ class FolderTableViewCellTests: XCTestCase {
         XCTAssertEqual(cell.titleLabel.text, "タイトル")
         XCTAssertEqual(cell.countLabel.text, "0")
     }
+ */
 }
 
 extension FolderTableViewCellTests {

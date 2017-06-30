@@ -10,11 +10,14 @@ import UIKit
 
 final class FolderListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var editButton: UIBarButtonItem!
+    //MARK : - Properties
     fileprivate let dataSource = FolderListProvider()
     fileprivate let alert = FolderAlert()
 
+    //MARK : - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     //MARK : - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,7 @@ final class FolderListViewController: UIViewController {
         reloadFolderList()
     }
 
-    //MARK : - Action
+    //MARK : - IBAction
     @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
 
         if tableView.isEditing {
@@ -42,7 +45,15 @@ final class FolderListViewController: UIViewController {
         tableView.isEditing = editing
         setupToolBar(isEditing: editing)
     }
+    
+    //MARK : - Fileprivate Methods
+    /// フォルダ一覧を取得する
+    fileprivate func reloadFolderList() {
+        dataSource.set(folders: FolderDao.findAll())
+        tableView.reloadData()
+    }
 
+    //MARK : - Private Methods
     /// ナビゲーションバーを設定する
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = editButtonItem
@@ -63,12 +74,6 @@ final class FolderListViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.allowsSelectionDuringEditing = true
-    }
-
-    /// フォルダ一覧を取得する
-    func reloadFolderList() {
-        dataSource.setFolders(folders: FolderDao.findAll())
-        tableView.reloadData()
     }
 }
 
@@ -117,13 +122,13 @@ extension FolderListViewController: UITableViewDelegate {
                               topOf: self)
             return
         }
-        showMemoListViewController(indexPath: indexPath)
+        showToDoListViewController(indexPath: indexPath)
     }
 
-    /// メモ一覧画面を表示する
+    /// ToDo一覧画面を表示する
     ///
     /// - Parameter indexPath: TableViewのIndexPath
-    private func showMemoListViewController(indexPath: IndexPath) {
+    private func showToDoListViewController(indexPath: IndexPath) {
 
         let folder = dataSource.folder(index: indexPath.row)
         let vc = ToDoListViewController.configuredWith(folder: folder)
@@ -134,8 +139,11 @@ extension FolderListViewController: UITableViewDelegate {
 //MARK : - FolderProviderDelegate
 extension FolderListViewController: FolderListProviderDelegate {
 
-    func deleteFolder(index: Int) {
-        FolderDao.delete(folderID: index)
+    /// フォルダを削除する
+    ///
+    /// - Parameter folderID: フォルダID
+    func deleteFolder(folderID: Int) {
+        FolderDao.delete(folderID: folderID)
         tableView.reloadData()
     }
 }

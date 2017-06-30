@@ -11,6 +11,7 @@ import XCTest
 
 class ToDoDaoTests: XCTestCase {
     
+/*
     override func setUp() {
         super.setUp()
     }
@@ -113,4 +114,6 @@ class ToDoDaoTests: XCTestCase {
         let result = ToDoDao.findAll(folderID: folderID)
         XCTAssertEqual(result.count, count)
     }    
+ 
+ */
 }
