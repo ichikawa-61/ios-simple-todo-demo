@@ -98,7 +98,6 @@ extension FolderListViewController: FormAlertHelperDelegate {
     /// 全フォルダとそれに関連するメモを削除する
     func deleteAll() {
         FolderDao.deleteAll()
-        ToDoDao.deleteAll()
         reloadFolderList()
         tableView.reloadData()
     }
@@ -137,7 +136,6 @@ extension FolderListViewController: FolderListProviderDelegate {
 
     func deleteFolder(index: Int) {
         FolderDao.delete(folderID: index)
-        ToDoDao.deleteAll(folderID: index)
         tableView.reloadData()
     }
 }

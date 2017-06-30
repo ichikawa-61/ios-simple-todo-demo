@@ -52,11 +52,13 @@ final class FolderDao {
         guard let target = dao.findFirst(key: folderID as AnyObject) else {
             return
         }
+        ToDoDao.deleteAll(folderID: target.folderID)
         dao.delete(data: target)
     }
 
     /// フォルダをすべて削除する
     static func deleteAll() {
+        ToDoDao.deleteAll()
         dao.deleteAll()
     }
 

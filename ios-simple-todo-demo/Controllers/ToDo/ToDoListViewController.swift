@@ -125,7 +125,7 @@ extension ToDoListViewController: FormAlertHelperDelegate {
 
     /// 全フォルダとそれに関連するメモを削除する
     func deleteAll() {
-        ToDoDao.deleteAll()
+        ToDoDao.deleteAll(folderID: folder.folderID)
         reloadToDoList()
         updateToDoCount()
         tableView.reloadData()
