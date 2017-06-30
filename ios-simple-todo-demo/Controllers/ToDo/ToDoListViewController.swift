@@ -83,7 +83,7 @@ final class ToDoListViewController: UIViewController {
 
     /// タスク一覧を取得する
     func reloadToDoList() {
-        dataSource.setToDos(todos: ToDoDao.findAll())
+        dataSource.setToDos(todos: ToDoDao.findAll(folderID: folder.folderID))
         tableView.reloadData()
     }
 

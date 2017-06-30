@@ -85,12 +85,11 @@ final class ToDoDao {
     /// 該当のToDo一覧を取得する
     ///
     /// - Parameters:
-    ///   - key: 主キー
     ///   - folderID: フォルダID
     /// - Returns: ToDo一覧
-    static func findAll(key: String, folderID: Int) -> [ToDo] {
+    static func findAll(folderID: Int) -> [ToDo] {
         let objects = ToDoDao.dao
-            .findAll(key: key as AnyObject, value: folderID as AnyObject)
+            .findAll(key: "folderID" as AnyObject, value: folderID as AnyObject)
             .sorted(byKeyPath: "date", ascending: false)
         return objects.map { ToDo(value: $0) }
     }

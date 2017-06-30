@@ -110,7 +110,7 @@ class ToDoDaoTests: XCTestCase {
 
     private func verifyCount(folderID: Int, count: Int) {
         
-        let result = ToDoDao.findAll(key: "folderID", folderID: folderID)
+        let result = ToDoDao.findAll(folderID: folderID)
         XCTAssertEqual(result.count, count)
     }    
 }
