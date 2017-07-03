@@ -14,6 +14,11 @@ final class Folder: Object {
     dynamic var title = ""
     dynamic var date: Date?
     let todos = List<ToDo>()
+    
+    /// タスクの件数(表示専用）
+    var taskCount: String {
+        return "\(todos.count)"
+    }
 
     override static func primaryKey() -> String? {
         return "folderID"

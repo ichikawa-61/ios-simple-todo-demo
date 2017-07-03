@@ -23,8 +23,8 @@ final class ToDoTableViewCell: UITableViewCell {
 
             titleLabel.text = todo?.title
 
-            if let date = todo?.date {
-                dateLabel.text = date.toStr(dateFormat: "yyyy/MM/dd")
+            if let updated = todo?.updated {
+                dateLabel.text = updated
             }
         }
     }
