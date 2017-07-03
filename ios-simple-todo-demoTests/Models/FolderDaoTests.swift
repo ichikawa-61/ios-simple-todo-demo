@@ -116,7 +116,7 @@ class FolderDaoTests: XCTestCase {
         
         //Exercise
         FolderDao.update(folder: folder!)
-        let result = FolderDao.findToDoAll(folderID: 1)
+        let result = FolderDao.findAllToDo(folderID: 1)
         
         //Verify
         XCTAssertEqual(result.count, 2)
@@ -151,8 +151,8 @@ class FolderDaoTests: XCTestCase {
         FolderDao.update(folder: folder2!)
 
         //Exercise
-        let result1 = FolderDao.findToDoAll(folderID: 1)
-        let result2 = FolderDao.findToDoAll(folderID: 2)
+        let result1 = FolderDao.findAllToDo(folderID: 1)
+        let result2 = FolderDao.findAllToDo(folderID: 2)
         
         //Verify
         XCTAssertEqual(result1.count, 2)
@@ -185,7 +185,7 @@ class FolderDaoTests: XCTestCase {
         //Exercise
         FolderDao.delete(folderID: 1)
         
-        let result = FolderDao.findToDoAll(folderID: 1)
+        let result = FolderDao.findAllToDo(folderID: 1)
         
         //Verify
         XCTAssertEqual(result.count, 0)

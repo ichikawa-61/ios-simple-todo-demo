@@ -79,9 +79,9 @@ final class ToDoDao {
     ///
     /// - Returns: ToDo一覧
     static func findAll() -> [ToDo] {
-        let objects = ToDoDao.dao
+        return ToDoDao.dao
             .findAll()
             .sorted(byKeyPath: "date", ascending: false)
-        return objects.map { ToDo(value: $0) }
+            .map { ToDo(value: $0) }
     }
 }

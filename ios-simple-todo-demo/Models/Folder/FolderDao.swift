@@ -79,9 +79,9 @@ final class FolderDao {
     ///
     /// - Returns: フォルダ一覧
     static func findAll() -> [Folder] {
-        let objects = FolderDao.dao.findAll()
+        return FolderDao.dao.findAll()
             .sorted(byKeyPath: "date", ascending: false)
-        return objects.map { Folder(value: $0) }
+            .map { Folder(value: $0) }        
     }
     
     //MARK : - 関連テーブル(ToDo)
@@ -89,7 +89,7 @@ final class FolderDao {
     /// 該当フォルダ内のすべてのToDoを削除する
     ///
     /// - Parameter folderID: フォルダID
-    static func deleteToDoAll(folderID: Int) {
+    static func deleteAllToDo(folderID: Int) {
         
         if let folder = FolderDao.findByID(folderID: folderID) {
             
@@ -105,7 +105,7 @@ final class FolderDao {
     /// - Parameters:
     ///   - folderID: フォルダID
     /// - Returns: ToDo一覧
-    static func findToDoAll(folderID: Int) -> [ToDo] {
+    static func findAllToDo(folderID: Int) -> [ToDo] {
             
         let objects = FolderDao.findByID(folderID: folderID)
         

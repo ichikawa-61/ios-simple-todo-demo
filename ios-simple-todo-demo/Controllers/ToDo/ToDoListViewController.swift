@@ -66,7 +66,7 @@ final class ToDoListViewController: UIViewController {
     //MARK : - FilePrivate Methods
     /// タスク一覧を取得する
     fileprivate func reloadToDoList() {
-        dataSource.set(todos: FolderDao.findToDoAll(folderID: folder.folderID))
+        dataSource.set(todos: FolderDao.findAllToDo(folderID: folder.folderID))
         tableView.reloadData()
     }
     
@@ -127,7 +127,7 @@ extension ToDoListViewController: FormAlertHelperDelegate {
 
     /// 全フォルダとそれに関連するタスクを削除する
     func deleteAll() {
-        FolderDao.deleteToDoAll(folderID: folder.folderID)
+        FolderDao.deleteAllToDo(folderID: folder.folderID)
         reloadToDoList()
         tableView.reloadData()
     }
