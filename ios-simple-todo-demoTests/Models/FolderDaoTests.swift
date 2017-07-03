@@ -7,11 +7,11 @@
 //
 
 import XCTest
+import RealmSwift
 @testable import ios_simple_todo_demo
 
 class FolderDaoTests: XCTestCase {
 
-    /*
     override func setUp() {
         super.setUp()
     }
@@ -21,25 +21,26 @@ class FolderDaoTests: XCTestCase {
         FolderDao.deleteAll()
     }
 
-    /// 登録できるか確認する
+    /// フォルダが登録できるか確認する
     func testAddFolder() {
 
         FolderDao.add(title: "タイトル")
         verifyFolder(folderID: 1, title: "タイトル")
     }
 
-    /// 変更できるか確認する
+    /// フォルダが変更できるか確認する
     func testUpdateFolder() {
 
         FolderDao.add(title: "タイトル")
-
         let result = FolderDao.findAll().first
         result?.title = "タイトル2"
+        
         FolderDao.update(folder: result!)
+        
         verifyFolder(folderID: 1, title: "タイトル2")
     }
 
-    /// 削除できるか確認する
+    /// フォルダが削除できるか確認する
     func testDeleteFolder() {
 
         FolderDao.add(title: "タイトル")
@@ -47,6 +48,17 @@ class FolderDaoTests: XCTestCase {
         verifyCount(count: 0)
     }
 
+    /// すべてのフォルダが削除できるか確認する
+    func testDeleteAllFolder() {
+        
+        FolderDao.add(title: "タイトル1")
+        FolderDao.add(title: "タイトル2")
+        FolderDao.add(title: "タイトル3")
+
+        FolderDao.deleteAll()
+        verifyCount(count: 0)
+    }
+    
     /// フォルダが取得できるか？
     func testFindAllFolder() {
 
@@ -80,7 +92,106 @@ class FolderDaoTests: XCTestCase {
         let result = FolderDao.findByID(folderID: 2)
         XCTAssertEqual("タイトル2", result?.title)
     }
+    
+    /// 該当フォルダにToDoが登録できるか？
+    /// check : 1フォルダに2個のToDoが存在する
+    func testAddTask_ForOneFolder() {
+        
+        //Setup
+        FolderDao.add(title: "フォルダ1")
 
+        let folder = FolderDao.findAll().first
+        
+        let todoId1 = ToDoDao.add(title: "タスク1")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId1) {
+            folder?.todos.append(todo)
+        }
+
+        let todoId2 = ToDoDao.add(title: "タスク2")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId2) {
+            folder?.todos.append(todo)
+        }
+        
+        //Exercise
+        FolderDao.update(folder: folder!)
+        let result = FolderDao.findToDoAll(folderID: 1)
+        
+        //Verify
+        XCTAssertEqual(result.count, 2)
+    }
+    
+    /// 該当フォルダにToDoが登録できるか？
+    /// check : フォルダ1 - 1フォルダに2個のToDoが存在する
+    /// check : フォルダ2 - 1フォルダに1個のToDoが存在する
+    func testAddTask_ForTwoFolder() {
+        
+        //Setup
+        FolderDao.add(title: "フォルダ1")
+        FolderDao.add(title: "フォルダ2")
+        
+        let folder1 = FolderDao.findAll().first
+        let folder2 = FolderDao.findAll().last
+
+        let todoId1 = ToDoDao.add(title: "タスク1")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId1) {
+            folder1?.todos.append(todo)
+            folder2?.todos.append(todo)
+        }
+        
+        let todoId2 = ToDoDao.add(title: "タスク2")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId2) {
+            folder1?.todos.append(todo)
+        }
+        
+        FolderDao.update(folder: folder1!)
+        FolderDao.update(folder: folder2!)
+
+        //Exercise
+        let result1 = FolderDao.findToDoAll(folderID: 1)
+        let result2 = FolderDao.findToDoAll(folderID: 2)
+        
+        //Verify
+        XCTAssertEqual(result1.count, 2)
+        XCTAssertEqual(result2.count, 1)
+    }
+    
+    /// 該当フォルダのToDoが削除できるか？
+    /// check : 1フォルダにToDoが存在しない
+    func testDeleteTask_ForOneFolder() {
+        
+        //Setup
+        FolderDao.add(title: "フォルダ1")
+        
+        let folder = FolderDao.findAll().first
+        
+        let todoId1 = ToDoDao.add(title: "タスク1")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId1) {
+            folder?.todos.append(todo)
+        }
+        
+        let todoId2 = ToDoDao.add(title: "タスク2")
+        
+        if let todo = ToDoDao.findByID(todoID: todoId2) {
+            folder?.todos.append(todo)
+        }
+        
+        FolderDao.update(folder: folder!)
+
+        //Exercise
+        FolderDao.delete(folderID: 1)
+        
+        let result = FolderDao.findToDoAll(folderID: 1)
+        
+        //Verify
+        XCTAssertEqual(result.count, 0)
+    }
+
+    
     //MARK : - Helper
     private func verifyFolder(folderID: Int, title: String) {
 
@@ -100,5 +211,4 @@ class FolderDaoTests: XCTestCase {
         let result = FolderDao.findAll()
         XCTAssertEqual(result.count, count)
     }
- */
 }

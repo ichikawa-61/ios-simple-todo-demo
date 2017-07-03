@@ -15,8 +15,9 @@ final class ToDoDao {
 
     /// ToDoを登録する
     ///
-    /// - Parameters:
-    ///   - title:  タイトル
+    /// - Parameter title: タイトル
+    /// - Returns: ToDo-ID
+    @discardableResult
     static func add(title: String) -> Int {
 
         let object = ToDo()
