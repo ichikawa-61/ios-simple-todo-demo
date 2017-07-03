@@ -16,19 +16,19 @@ final class ToDoDao {
     /// ToDoを登録する
     ///
     /// - Parameters:
-    ///   - folderID: フォルダID
     ///   - title:  タイトル
-    static func add(folderID: Int, title: String) {
+    static func add(title: String) -> Int {
 
         let object = ToDo()
         object.todoID = ToDoDao.dao.newId()!
-        object.folderID = folderID
         object.title = title
         object.date = Date().now()
         ToDoDao.dao.add(data: object)
+        
+        return object.todoID
     }
 
-    /// ToDoを更新する
+    /// 該当のToDoを更新する
     ///
     /// - Parameter todo: ToDo
     static func update(todo: ToDo) {
@@ -40,13 +40,12 @@ final class ToDoDao {
 
         let object = ToDo()
         object.todoID = target.todoID
-        object.folderID = target.folderID
         object.title = todo.title
         object.date = Date().now()
         dao.update(data: object)
     }
 
-    /// ToDoを削除する
+    /// 該当のToDoを削除する
     ///
     /// - Parameter todoID: ToDo-ID
     static func delete(todoID: Int) {
@@ -58,14 +57,7 @@ final class ToDoDao {
         dao.delete(data: target)
     }
 
-    /// フォルダ内のToDoをすべて削除する
-    ///
-    /// - Parameter folderID: フォルダID
-    static func deleteAll(folderID: Int) {
-        dao.deleteAll(key: "folderID" as AnyObject, value: folderID as AnyObject)
-    }
-
-    /// メモをすべて削除する
+    /// すべてのToDoを削除する
     static func deleteAll() {
         dao.deleteAll()
     }
@@ -80,18 +72,6 @@ final class ToDoDao {
                 return nil
         }
         return object
-    }
-
-    /// 該当のToDo一覧を取得する
-    ///
-    /// - Parameters:
-    ///   - folderID: フォルダID
-    /// - Returns: ToDo一覧
-    static func findAll(folderID: Int) -> [ToDo] {
-        let objects = ToDoDao.dao
-            .findAll(key: "folderID" as AnyObject, value: folderID as AnyObject)
-            .sorted(byKeyPath: "date", ascending: false)
-        return objects.map { ToDo(value: $0) }
     }
 
     /// すべてのToDoを取得する

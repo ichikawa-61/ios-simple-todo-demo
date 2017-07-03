@@ -10,6 +10,9 @@ import UIKit
 
 final class FolderAlert: NSObject, FormAlertable {
 
+    /// 生成用のアラートを表示する
+    ///
+    /// - Parameter topOf: 表示するViewController
     func showCreate(topOf: UIViewController) {
 
         let helper = FormAlertHelper()
@@ -22,6 +25,12 @@ final class FolderAlert: NSObject, FormAlertable {
         topOf.present(alert, animated: true, completion: nil)
     }
 
+    /// 変更用のアラートを表示する
+    ///
+    /// - Parameters:
+    ///   - index: <#index description#>
+    ///   - title:
+    /// - Parameter topOf: 表示するViewController
     func showUpdate(index: Int, title: String, topOf: UIViewController) {
 
         let helper = FormAlertHelper()

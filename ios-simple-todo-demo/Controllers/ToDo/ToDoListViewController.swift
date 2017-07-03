@@ -66,19 +66,10 @@ final class ToDoListViewController: UIViewController {
     //MARK : - FilePrivate Methods
     /// タスク一覧を取得する
     fileprivate func reloadToDoList() {
-        dataSource.set(todos: ToDoDao.findAll(folderID: folder.folderID))
+        dataSource.set(todos: FolderDao.findToDoAll(folderID: folder.folderID))
         tableView.reloadData()
     }
     
-    /// タスクの件数を更新する
-    fileprivate func updateToDoCount() {
-        
-        let todoCount = dataSource.count()
-        let updateFolder = folder
-        updateFolder?.count = todoCount
-        FolderDao.update(folder: updateFolder!)
-    }
-
     //MARK : - Private Methods
     /// ナビゲーションバーを設定する
     private func setupNavigationBar() {
@@ -115,24 +106,29 @@ extension ToDoListViewController: FormAlertHelperDelegate {
 
         switch type {
         case .add:
-            ToDoDao.add(folderID: folder.folderID, title: title)
+            let todoId = ToDoDao.add(title: title)
+            
+            if let todo = ToDoDao.findByID(todoID: todoId) {
+                folder.todos.append(todo)
+                FolderDao.update(folder: folder)
+            }
 
         case .update(let index):
-            let todo = dataSource.todo(index: index)
-            todo.title = title
-            ToDoDao.update(todo: todo)
+            let currentTodo = dataSource.todo(index: index)
+            
+            let updateTodo = ToDo(value: currentTodo)
+            updateTodo.title = title
+            ToDoDao.update(todo: updateTodo)
         }
 
         reloadToDoList()
-        updateToDoCount()
         tableView.reloadData()
     }
 
-    /// 全フォルダとそれに関連するメモを削除する
+    /// 全フォルダとそれに関連するタスクを削除する
     func deleteAll() {
-        ToDoDao.deleteAll(folderID: folder.folderID)
+        FolderDao.deleteToDoAll(folderID: folder.folderID)
         reloadToDoList()
-        updateToDoCount()
         tableView.reloadData()
     }
 }
@@ -162,7 +158,6 @@ extension ToDoListViewController: ToDoListProviderDelegate {
     /// - Parameter todoID: タスクID
     func deleteToDo(todoID: Int) {
         ToDoDao.delete(todoID: todoID)
-        updateToDoCount()
         tableView.reloadData()
     }
 }

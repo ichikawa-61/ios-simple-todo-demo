@@ -38,7 +38,7 @@ final class FormAlertHelper: NSObject {
                       title: String = "",
                       delegate: FormAlertHelperDelegate) -> UIAlertController {
 
-        alert = UIAlertController(title: title,
+        alert = UIAlertController(title: self.title,
                                   message: message,
                                   preferredStyle: .alert)
 
@@ -51,12 +51,12 @@ final class FormAlertHelper: NSObject {
         let saveAction = UIAlertAction(title: Constrains.Alert.saveButton,
                                        style: .default) { _ in
 
-                                        if let textField = self.alert.textFields?.first {
+            if let textField = self.alert.textFields?.first {
 
-                                            if let folderName = textField.text {
-                                                self.delegate?.addAndUpdate(type: type, title: folderName)
-                                            }
-                                        }
+                if let folderName = textField.text {
+                    self.delegate?.addAndUpdate(type: type, title: folderName)
+                }
+            }
         }
 
         alert.addAction(cancelAction)
@@ -92,7 +92,7 @@ final class FormAlertHelper: NSObject {
 
         let deleteAction = UIAlertAction(title: Constrains.Alert.deleteAllButton,
                                          style: .destructive) { _ in
-                                            self.delegate?.deleteAll()
+            self.delegate?.deleteAll()
         }
 
         alert.addAction(cancelAction)

@@ -13,7 +13,7 @@ final class Folder: Object {
     dynamic var folderID = 0
     dynamic var title = ""
     dynamic var date: Date?
-    dynamic var count = 0
+    let todos = List<ToDo>()
 
     override static func primaryKey() -> String? {
         return "folderID"

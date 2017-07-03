@@ -23,7 +23,7 @@ final class FolderTableViewCell: UITableViewCell {
         didSet {
             titleLabel.text = folder?.title
 
-            if let count = folder?.count {
+            if let count = folder?.todos.count {
                 countLabel.text = "\(count)"
             } else {
                 countLabel.text = "0"
