@@ -11,7 +11,6 @@ import XCTest
 
 class ToDoListViewControllerTests: XCTestCase {
 
-    /*
     var controller: ToDoListViewController!
     
     override func setUp() {
@@ -59,5 +58,4 @@ class ToDoListViewControllerTests: XCTestCase {
         let title = controller.navigationItem.rightBarButtonItem?.title
         XCTAssertEqual(title, "完了")
     }
-*/
 }

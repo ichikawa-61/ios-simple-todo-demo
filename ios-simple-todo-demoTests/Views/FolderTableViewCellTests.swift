@@ -11,7 +11,6 @@ import XCTest
 
 class FolderTableViewCellTests: XCTestCase {
 
-/*
     var tableView: UITableView!
     let dataSource = FakeDataSource()
     var cell: FolderTableViewCell!
@@ -43,20 +42,23 @@ class FolderTableViewCellTests: XCTestCase {
     func testSetCountLabel() {
 
         let folder = Folder()
-        folder.count = 10
         folder.title = "タイトル"
         folder.date = Date().now()
+        
+        let todoId = ToDoDao.add(title: "タスク1")
+        if let todo = ToDoDao.findByID(todoID: todoId) {
+            folder.todos.append(todo)
+        }
         cell.folder = folder
 
         XCTAssertEqual(cell.titleLabel.text, "タイトル")
-        XCTAssertEqual(cell.countLabel.text, "10")
+        XCTAssertEqual(cell.countLabel.text, "1")
     }
 
     /// カウントが0のとき
     func testSetCountLabel_WhenCount0() {
 
         let folder = Folder()
-        folder.count = 0
         folder.title = "タイトル"
         folder.date = Date().now()
         cell.folder = folder
@@ -64,7 +66,6 @@ class FolderTableViewCellTests: XCTestCase {
         XCTAssertEqual(cell.titleLabel.text, "タイトル")
         XCTAssertEqual(cell.countLabel.text, "0")
     }
- */
 }
 
 extension FolderTableViewCellTests {

@@ -13,7 +13,6 @@ class FolderListViewControllerTests: XCTestCase {
 
     var controller: FolderListViewController!
 
-    /*
     override func setUp() {
         super.setUp()
 
@@ -64,6 +63,4 @@ class FolderListViewControllerTests: XCTestCase {
         let title = controller.navigationItem.rightBarButtonItem?.title
         XCTAssertEqual(title, "完了")
     }
-    
-    */
 }
