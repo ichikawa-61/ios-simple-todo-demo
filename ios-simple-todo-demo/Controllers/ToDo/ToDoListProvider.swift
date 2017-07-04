@@ -57,11 +57,13 @@ extension ToDoListProvider: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView
+        guard let cell = tableView
             .dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifier,
-                                 for: indexPath) as? ToDoTableViewCell
-        cell?.todo = todo(index: indexPath.row)
-        return cell!
+                                 for: indexPath) as? ToDoTableViewCell else {
+            fatalError("ToDoTableViewCellが取得できない。")
+        }        
+        cell.todo = todo(index: indexPath.row)
+        return cell
     }
 
     func tableView(_ tableView: UITableView,

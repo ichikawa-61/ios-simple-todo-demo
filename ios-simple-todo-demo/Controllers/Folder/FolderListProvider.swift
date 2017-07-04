@@ -49,11 +49,13 @@ extension FolderListProvider: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView
+        guard let cell = tableView
             .dequeueReusableCell(withIdentifier: FolderTableViewCell.identifier,
-                                 for: indexPath) as? FolderTableViewCell
-        cell?.folder = folder(index: indexPath.row)
-        return cell!
+                                 for: indexPath) as? FolderTableViewCell else {
+            fatalError("FolderTableViewCellが取得できない。")
+        }        
+        cell.folder = folder(index: indexPath.row)
+        return cell
     }
 
     func tableView(_ tableView: UITableView,
