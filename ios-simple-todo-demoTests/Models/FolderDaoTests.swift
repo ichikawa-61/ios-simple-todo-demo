@@ -101,17 +101,12 @@ class FolderDaoTests: XCTestCase {
         FolderDao.add(title: "フォルダ1")
 
         let folder = FolderDao.findAll().first
-        
         let todoId1 = ToDoDao.add(title: "タスク1")
-        
-        if let todo = ToDoDao.findByID(todoID: todoId1) {
-            folder?.todos.append(todo)
-        }
-
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo = ToDoDao.findByID(todoID: todoId2) {
-            folder?.todos.append(todo)
+        if let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) {
+            folder?.todos.append(objectsIn: [todo1, todo2])
         }
         
         //Exercise
@@ -133,20 +128,16 @@ class FolderDaoTests: XCTestCase {
         
         let folder1 = FolderDao.findAll().first
         let folder2 = FolderDao.findAll().last
-
         let todoId1 = ToDoDao.add(title: "タスク1")
-        
-        if let todo = ToDoDao.findByID(todoID: todoId1) {
-            folder1?.todos.append(todo)
-            folder2?.todos.append(todo)
-        }
-        
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo = ToDoDao.findByID(todoID: todoId2) {
-            folder1?.todos.append(todo)
+        if let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) {
+            
+            folder1?.todos.append(todo1)
+            folder1?.todos.append(todo2)
+            folder2?.todos.append(todo1)
         }
-        
         FolderDao.update(folder: folder1!)
         FolderDao.update(folder: folder2!)
 
@@ -167,19 +158,14 @@ class FolderDaoTests: XCTestCase {
         FolderDao.add(title: "フォルダ1")
         
         let folder = FolderDao.findAll().first
-        
         let todoId1 = ToDoDao.add(title: "タスク1")
-        
-        if let todo = ToDoDao.findByID(todoID: todoId1) {
-            folder?.todos.append(todo)
-        }
-        
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo = ToDoDao.findByID(todoID: todoId2) {
-            folder?.todos.append(todo)
+        if let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) {
+            folder?.todos.append(todo1)
+            folder?.todos.append(todo2)
         }
-        
         FolderDao.update(folder: folder!)
 
         //Exercise
