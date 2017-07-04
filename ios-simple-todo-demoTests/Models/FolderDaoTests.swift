@@ -44,7 +44,9 @@ class FolderDaoTests: XCTestCase {
     func testDeleteFolder() {
 
         FolderDao.add(title: "タイトル")
+        
         FolderDao.delete(folderID: 1)
+        
         verifyCount(count: 0)
     }
 
@@ -56,6 +58,7 @@ class FolderDaoTests: XCTestCase {
         FolderDao.add(title: "タイトル3")
 
         FolderDao.deleteAll()
+        
         verifyCount(count: 0)
     }
     
@@ -65,6 +68,7 @@ class FolderDaoTests: XCTestCase {
         FolderDao.add(title: "タイトル1")
         FolderDao.add(title: "タイトル2")
         FolderDao.add(title: "タイトル3")
+        
         verifyCount(count: 3)
     }
 
@@ -100,17 +104,20 @@ class FolderDaoTests: XCTestCase {
         //Setup
         FolderDao.add(title: "フォルダ1")
 
-        let folder = FolderDao.findAll().first
+        let folders = FolderDao.findAll()
         let todoId1 = ToDoDao.add(title: "タスク1")
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo1 = ToDoDao.findByID(todoID: todoId1),
-            let todo2 = ToDoDao.findByID(todoID: todoId2) {
-            folder?.todos.append(objectsIn: [todo1, todo2])
+        guard
+            let folder = folders.first,
+            let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) else {
+            return
         }
+        folder.todos.append(objectsIn: [todo1, todo2])
         
         //Exercise
-        FolderDao.update(folder: folder!)
+        FolderDao.update(folder: folder)
         let result = FolderDao.findAllToDo(folderID: 1)
         
         //Verify
@@ -126,20 +133,22 @@ class FolderDaoTests: XCTestCase {
         FolderDao.add(title: "フォルダ1")
         FolderDao.add(title: "フォルダ2")
         
-        let folder1 = FolderDao.findAll().first
-        let folder2 = FolderDao.findAll().last
+        let folders = FolderDao.findAll()
         let todoId1 = ToDoDao.add(title: "タスク1")
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo1 = ToDoDao.findByID(todoID: todoId1),
-            let todo2 = ToDoDao.findByID(todoID: todoId2) {
-            
-            folder1?.todos.append(todo1)
-            folder1?.todos.append(todo2)
-            folder2?.todos.append(todo1)
+        guard
+            let folder1 = folders.first,
+            let folder2 = folders.last,
+            let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) else {
+            return
         }
-        FolderDao.update(folder: folder1!)
-        FolderDao.update(folder: folder2!)
+        
+        folder1.todos.append(objectsIn: [todo1, todo2])
+        folder2.todos.append(todo1)
+        FolderDao.update(folder: folder1)
+        FolderDao.update(folder: folder2)
 
         //Exercise
         let result1 = FolderDao.findAllToDo(folderID: 1)
@@ -157,17 +166,20 @@ class FolderDaoTests: XCTestCase {
         //Setup
         FolderDao.add(title: "フォルダ1")
         
-        let folder = FolderDao.findAll().first
+        let folders = FolderDao.findAll()
         let todoId1 = ToDoDao.add(title: "タスク1")
         let todoId2 = ToDoDao.add(title: "タスク2")
         
-        if let todo1 = ToDoDao.findByID(todoID: todoId1),
-            let todo2 = ToDoDao.findByID(todoID: todoId2) {
-            folder?.todos.append(todo1)
-            folder?.todos.append(todo2)
+        guard
+            let folder = folders.first,
+            let todo1 = ToDoDao.findByID(todoID: todoId1),
+            let todo2 = ToDoDao.findByID(todoID: todoId2) else {
+            return
         }
-        FolderDao.update(folder: folder!)
-
+        
+        folder.todos.append(objectsIn: [todo1, todo2])
+        FolderDao.update(folder: folder)
+        
         //Exercise
         FolderDao.delete(folderID: 1)
         
