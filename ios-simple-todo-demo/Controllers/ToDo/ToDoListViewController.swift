@@ -10,16 +10,16 @@ import UIKit
 
 final class ToDoListViewController: UIViewController {
 
-    //MARK : - Properties
+    //MARK: - Properties
     fileprivate let dataSource = ToDoListProvider()
     fileprivate let alert = ToDoAlert()
     fileprivate var folder: Folder!
     
-    //MARK : - IBOutlet
+    //MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    //MARK : - Action
+    //MARK: - Action
     @IBAction func didTapEditToDo(_ sender: UIBarButtonItem) {
         
         if tableView.isEditing {
@@ -29,7 +29,7 @@ final class ToDoListViewController: UIViewController {
         }
     }
 
-    //MARK : - Initializers
+    //MARK: - Initializers
     /// ToDo一覧画面のインスタンスを取得する
     ///
     /// - Parameter folder: フォルダ
@@ -45,7 +45,7 @@ final class ToDoListViewController: UIViewController {
         return vc!
     }
 
-    //MARK : - LifeCycle
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -63,14 +63,14 @@ final class ToDoListViewController: UIViewController {
         setupToolBar(isEditing: editing)
     }
     
-    //MARK : - FilePrivate Methods
+    //MARK: - FilePrivate Methods
     /// タスク一覧を取得する
     fileprivate func reloadToDoList() {
         dataSource.set(todos: FolderDao.findAllToDo(folderID: folder.folderID))
         tableView.reloadData()
     }
     
-    //MARK : - Private Methods
+    //MARK: - Private Methods
     /// ナビゲーションバーを設定する
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = editButtonItem
@@ -94,7 +94,7 @@ final class ToDoListViewController: UIViewController {
     }
 }
 
-//MARK : - AlertHelperDelegate
+//MARK: - AlertHelperDelegate
 extension ToDoListViewController: FormAlertHelperDelegate {
 
     /// フォルダの追加または、更新完了通知を受信したときの処理
@@ -133,7 +133,7 @@ extension ToDoListViewController: FormAlertHelperDelegate {
     }
 }
 
-//MARK : - UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension ToDoListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
@@ -150,7 +150,7 @@ extension ToDoListViewController: UITableViewDelegate {
     }
 }
 
-//MARK : - ToDoListProviderDelegate
+//MARK: - ToDoListProviderDelegate
 extension ToDoListViewController: ToDoListProviderDelegate {
 
     /// タスクを削除する

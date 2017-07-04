@@ -84,7 +84,7 @@ final class FolderDao {
             .map { Folder(value: $0) }        
     }
     
-    //MARK : - 関連テーブル(ToDo)
+    //MARK: - 関連テーブル(ToDo)
     
     /// 該当フォルダ内のすべてのToDoを削除する
     ///

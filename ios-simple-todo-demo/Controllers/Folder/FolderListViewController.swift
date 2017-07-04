@@ -10,15 +10,15 @@ import UIKit
 
 final class FolderListViewController: UIViewController {
 
-    //MARK : - Properties
+    //MARK: - Properties
     fileprivate let dataSource = FolderListProvider()
     fileprivate let alert = FolderAlert()
 
-    //MARK : - IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    //MARK : - LifeCycle
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -30,7 +30,7 @@ final class FolderListViewController: UIViewController {
         reloadFolderList()
     }
 
-    //MARK : - IBAction
+    //MARK: - IBAction
     @IBAction func didTapEditFolder(_ sender: UIBarButtonItem) {
 
         if tableView.isEditing {
@@ -46,14 +46,14 @@ final class FolderListViewController: UIViewController {
         setupToolBar(isEditing: editing)
     }
     
-    //MARK : - Fileprivate Methods
+    //MARK: - Fileprivate Methods
     /// フォルダ一覧を取得する
     fileprivate func reloadFolderList() {
         dataSource.set(folders: FolderDao.findAll())
         tableView.reloadData()
     }
 
-    //MARK : - Private Methods
+    //MARK: - Private Methods
     /// ナビゲーションバーを設定する
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = editButtonItem
@@ -77,7 +77,7 @@ final class FolderListViewController: UIViewController {
     }
 }
 
-//MARK : - AlertHelperDelegate
+//MARK: - AlertHelperDelegate
 extension FolderListViewController: FormAlertHelperDelegate {
 
     /// フォルダの追加または、更新完了通知を受信したときの処理
@@ -108,7 +108,7 @@ extension FolderListViewController: FormAlertHelperDelegate {
     }
 }
 
-//MARK : - UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension FolderListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
@@ -136,7 +136,7 @@ extension FolderListViewController: UITableViewDelegate {
     }
 }
 
-//MARK : - FolderProviderDelegate
+//MARK: - FolderProviderDelegate
 extension FolderListViewController: FolderListProviderDelegate {
 
     /// フォルダを削除する

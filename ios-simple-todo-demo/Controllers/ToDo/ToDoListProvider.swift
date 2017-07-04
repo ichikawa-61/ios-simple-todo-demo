@@ -14,11 +14,11 @@ protocol ToDoListProviderDelegate: class {
 
 final class ToDoListProvider: NSObject {
 
-    //MARK : - Properties    
+    //MARK: - Properties
     fileprivate var todos = [ToDo]()
     weak var delegate: ToDoListProviderDelegate?
 
-    //MARK : - Public Methods
+    //MARK: - Public Methods
     /// ToDo一覧を設定する
     ///
     /// - Parameter todos: メモ一覧
@@ -46,7 +46,7 @@ final class ToDoListProvider: NSObject {
     }
 }
 
-//MARK : - UITableViewDataSource
+//MARK: - UITableViewDataSource
 extension ToDoListProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,

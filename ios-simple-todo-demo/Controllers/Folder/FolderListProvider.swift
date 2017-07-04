@@ -14,11 +14,11 @@ protocol FolderListProviderDelegate: class {
 
 final class FolderListProvider: NSObject {
 
-    //MARK : - Properties
+    //MARK: - Properties
     weak var delegate: FolderListProviderDelegate?
     fileprivate var folders = [Folder]()
 
-    //MARK : - Public Methods
+    //MARK: - Public Methods
     /// フォルダ一覧を設定する
     ///
     /// - Parameter folders: フォルダ一覧
@@ -38,7 +38,7 @@ final class FolderListProvider: NSObject {
     }
 }
 
-//MARK : - UITableViewDataSource
+//MARK: - UITableViewDataSource
 extension FolderListProvider: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,
